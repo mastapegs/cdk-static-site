@@ -23,6 +23,14 @@ jobs:
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - name: Change directory to frontend
+        run: |
+          cd frontend
+
+      - name: Run build
+        run: |
+          npm run build
+
       - name: Sync S3 bucket
         run: |
-          aws s3 sync build s3://${{ secrets.S3_BUCKET_NAME }}
+          aws s3 sync dist s3://${{ secrets.S3_BUCKET_NAME }}
