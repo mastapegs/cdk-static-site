@@ -43,5 +43,7 @@ jobs:
           aws s3 sync dist s3://${{ secrets.S3_BUCKET_NAME }}
       
       - name: Invalidate CloudFront distribution
-        run: |
-          aws cloudfront invalidate-distribution --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        uses: chetan/invalidate-cloudfront-action@v2
+        with:
+          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          PATHS: "/*"
