@@ -28,6 +28,7 @@ jobs:
           cd frontend
         
       - name: NPM install
+        working-directory: ./frontend
         run: |
           npm ci
 
