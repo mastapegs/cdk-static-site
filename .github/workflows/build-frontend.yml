@@ -1,4 +1,4 @@
-name: Sync S3 Bucket
+name: Build Frontend
 
 on:
   pull_request:
