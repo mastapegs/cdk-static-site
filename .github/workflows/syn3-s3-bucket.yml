@@ -26,6 +26,10 @@ jobs:
       - name: Change directory to frontend
         run: |
           cd frontend
+        
+      - name: NPM install
+        run: |
+          npm ci
 
       - name: Run build
         working-directory: ./frontend
